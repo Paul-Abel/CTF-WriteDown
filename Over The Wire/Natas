@@ -1,0 +1,54 @@
+Level 0:
+- pw is in HTML code
+- pw = "0nzCigAq7t2iALyvU9xcHlYN4MlkIwlq"
+
+Level 1:
+- pw is in HTML code
+- pw = "TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI"
+
+Level 2:
+- in HTML is a img with 1x1 pixel in /files/pixel.png
+- the folder files contains user.txt which contains the pw
+- pw: "3gqisGdR0pjm6tpkDKdIWO2hSvchLeYH"
+
+Level 3:
+- in HTML is a tipp with "Not even Google will fint this time..."
+- robots.txt contains a file name "/s3cr3t/"
+- this folder contains a user.txt which contains the pw
+- pw: "QryZXc2e0zahULdHrtHxzyYkj59kUxLQ"
+
+Level 4: 
+- The Tipp is "Access disallowed. You are visiting from "" while authorized users should come only from "http://natas5.natas.labs.overthewire.org/""
+- Intercept Request and change REFERER to the shown url
+- pw: "0n35PkggAPm2zbEpOU802c0x0Msn1ToK"
+
+Level 5: 
+- The tipp is "Access disallowed. You are not logged in"
+- Intercept Reqest and set in the Request cookies loggedin form 0 -> 1
+- pw: "0RoJwHdSKWFTYR5WuiAewauSuNaBXned"
+
+Level 6: 
+- There is a link to a source code which has "include "includes/secret.inc";"
+- When open the link look at the Response raw in the inspector. This contains a password " ´FOEIUWGHFEEUHOFUOIU"
+- Enter this to the Input Secret you get the solution
+- pw: "bmg8SvU1LizuWjx3y7xkNERkHxGre0GS"
+
+Level 7: 
+- In the HTML of the website is the hint: <!-- hint: password for webuser natas8 is in /etc/natas_webpass/natas8 -->
+- Replace the argument in the index.php with the path -->  http://natas7.natas.labs.overthewire.org/index.php?page=/etc/natas_webpass/natas8
+- pw: "xcoXLmzMkoIP9D7hlgPlh9XD7OgLAe5Q "
+
+Level 8: 
+- The HTML shows a link for the source code of the encryption this contains: 
+        $encodedSecret = "3d3d516343746d4d6d6c315669563362";
+        
+        function encodeSecret($secret) {
+            return bin2hex(strrev(base64_encode($secret)));
+        }
+- So take the secret binary to hexadezimal -> string reversed --> base64_encode --> oubWYf2kBq
+- pw: "ZE1ck82lmdGIoErlhQgWND6j2Wzz6b6t"
+
+Level 9: 
+- Works with URL-Injection, in the starting Page of the nantes it says "All passwords are also stored in /etc/natas_webpass/. E.g. the password for natas5 is stored in the file /etc/natas_webpass/natas5 and only readable by natas4 and natas5."
+- So I can access this file with http://natas9.natas.labs.overthewire.org/?needle=;%20cat%20/etc/natas_webpass/natas10
+- pw: "t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu"
